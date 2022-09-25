@@ -38,19 +38,17 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    content = db.Column(db.Text, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable=False)
 
-    def __init__(self, title, content, author, user_token):
+    def __init__(self, title, price, author, user_token):
         self.title = title
-        self.content = content
+        self.price = price
         self.author = author
         self.user_token = user_token
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
-
-
 
 class UserSchema(ma.Schema):
     class Meta:
@@ -61,7 +59,7 @@ users_schema = UserSchema(many=True)
 
 class PostSchema(ma.Schema):
     class Meta:
-        fields = ['id', 'title', 'content']
+        fields = ['id', 'title', 'price']
 
 post_schema = PostSchema()
 posts_schema = PostSchema(many=True)
