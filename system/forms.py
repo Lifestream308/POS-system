@@ -25,9 +25,8 @@ class RegistrationForm(FlaskForm):
 
 # Update Account form
 class AccountForm(FlaskForm):
-    picture = IntegerField('Picture#', validators=[DataRequired(), NumberRange(1-7)])
-    pokemon = IntegerField('Pokemon#', validators=[DataRequired(), NumberRange(1-151)])
-    tagline = StringField('Tagline', validators=[DataRequired(), Length(max=100)])
+    category1 = StringField('Category 1', validators=[DataRequired(), Length(min=1, max=15)])
+    category2 = StringField('Category 2', validators=[DataRequired(), Length(min=1, max=15)])
     submit = SubmitField('Update')
 
 
