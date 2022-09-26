@@ -3,16 +3,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_marshmallow import Marshmallow
-# from flask_cors import CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 # Below is elephant sql database 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ikqcpqmt:XAjcIV0wn1AB2dZv3_QHr2U-RRgWzday@heffalump.db.elephantsql.com/ikqcpqmt'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://fkptnwgk:U0XmEwAEhB7NBgnUuuiSTDxKoR40VDTM@heffalump.db.elephantsql.com/fkptnwgk'
 # Below is Heroku database  
 # app.config['SQLALCHEMY_DATABASE_URI'] = ''
-# CORS(app)
+CORS(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 ma = Marshmallow(app)
