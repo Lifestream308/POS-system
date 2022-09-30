@@ -124,9 +124,9 @@ nav {
 .flex {
   display: flex;
 }
-/* .spaceAround {
-  align-content: flex-end;
-} */
+.justifyCenter {
+  justify-content: center;
+}
 
 
 /* Dropdown Button */

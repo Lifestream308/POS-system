@@ -15,3 +15,11 @@ function mobileFunction() {
       }
     }
   }
+
+function testLog() {
+  let amount = document.getElementsByTagName('input')[0].value
+  let price = document.getElementsByClassName('itemPrice')[0].innerHTML
+  console.log("Amount: " + amount)
+  console.log("Price: " + price)
+  console.log(amount * price)
+}
