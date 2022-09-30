@@ -17,9 +17,13 @@ function mobileFunction() {
   }
 
 function testLog() {
-  let amount = document.getElementsByTagName('input')[0].value
-  let price = document.getElementsByClassName('itemPrice')[0].innerHTML
-  console.log("Amount: " + amount)
-  console.log("Price: " + price)
-  console.log(amount * price)
+  let total = 0
+  let amountField = document.getElementsByTagName('input')
+  let priceField = document.getElementsByClassName('itemPrice')
+  let totalField = document.getElementById("total")
+  for (let i = 0; i < amountField.length; i++) {
+    total += amountField[i].value * priceField[i].innerHTML
+  }
+  console.log(total)
+  totalField.innerHTML = "Total: $" + total
 }
